@@ -18,7 +18,6 @@ const char* socket_path = "\0hidden";
 int main(int argc, char** argv) {
 	using namespace std;
 
-	struct sockaddr_un addr;
 	char buf[100];
 	int data_fd;
 	int rc;
@@ -28,8 +27,8 @@ int main(int argc, char** argv) {
 		exit (EXIT_FAILURE);
 	}
 
+	struct sockaddr_un addr;
 	memset(&addr, 0, sizeof(addr));
-
 	addr.sun_family = AF_UNIX;
 
 	if (*socket_path == '\0') {
